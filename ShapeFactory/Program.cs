@@ -12,17 +12,21 @@ namespace ShapeFactory
                 Console.WriteLine("What shape would you like?\n" +
                                   "1. Line\n" +
                                   "2. Circle\n" +
-                                  "3. Rectangle\n");
+                                  "3. Rectangle\n" +
+                                  "4. Triangle\n");
                 type = (ShapeType) i;
 
                 ShapeFactory factory = new ShapeFactory();
-                factory.getShape(type).draw();
+                if (factory.getShape(type) == null)
+                    Console.WriteLine("Shape not found.\n");
+                else
+                    factory.getShape(type).draw();
             }
         }
     }
     public enum ShapeType
     {
-        LINE = 1, CIRCLE = 2, RECTANGLE = 3, TRIANGLE = 0
+        LINE = 1, CIRCLE = 2, RECTANGLE = 3, TRIANGLE = 4
     }
     class ShapeFactory
     {
